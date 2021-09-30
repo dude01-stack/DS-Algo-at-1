@@ -1,0 +1,267 @@
+﻿Java ArrayList
+The ArrayList class is a resizable array, which can be found in the java.util package.
+The difference between a built-in array and an ArrayList in Java, is that the size of an array cannot be modified (if you want to add or remove elements to/from an array, you have to create a new one). While elements can be added and removed from an ArrayList whenever you want. The syntax is also slightly different:
+Example
+Create an ArrayList object called cars that will store strings:
+import java.util.ArrayList; // import the ArrayList class
+
+
+ArrayList<String> cars = new ArrayList<String>(); // Create an ArrayList object
+
+
+If you don't know what a package is, read our Java Packages Tutorial.
+________________
+
+
+Add Items
+The ArrayList class has many useful methods. For example, to add elements to the ArrayList, use the add() method:
+Example
+import java.util.ArrayList;
+
+
+public class Main {
+  public static void main(String[] args) {
+    ArrayList<String> cars = new ArrayList<String>();
+    cars.add("Volvo");
+    cars.add("BMW");
+    cars.add("Ford");
+    cars.add("Mazda");
+    System.out.println(cars);
+  }
+}
+________________
+
+
+Access an Item
+To access an element in the ArrayList, use the get() method and refer to the index number:
+Example
+cars.get(0);
+Remember: Array indexes start with 0: [0] is the first element. [1] is the second element, etc.
+________________
+
+
+________________
+
+
+Change an Item
+To modify an element, use the set() method and refer to the index number:
+Example
+cars.set(0, "Opel");
+________________
+
+
+Remove an Item
+To remove an element, use the remove() method and refer to the index number:
+Example
+cars.remove(0);
+To remove all the elements in the ArrayList, use the clear() method:
+Example
+cars.clear();
+________________
+
+
+ArrayList Size
+To find out how many elements an ArrayList have, use the size method:
+Example
+cars.size();
+________________
+
+
+Loop Through an ArrayList
+Loop through the elements of an ArrayList with a for loop, and use the size() method to specify how many times the loop should run:
+Example
+public class Main {
+  public static void main(String[] args) {
+    ArrayList<String> cars = new ArrayList<String>();
+    cars.add("Volvo");
+    cars.add("BMW");
+    cars.add("Ford");
+    cars.add("Mazda");
+    for (int i = 0; i < cars.size(); i++) {
+      System.out.println(cars.get(i));
+    }
+  }
+}
+You can also loop through an ArrayList with the for-each loop:
+Example
+public class Main {
+  public static void main(String[] args) {
+    ArrayList<String> cars = new ArrayList<String>();
+    cars.add("Volvo");
+    cars.add("BMW");
+    cars.add("Ford");
+    cars.add("Mazda");
+    for (String i : cars) {
+      System.out.println(i);
+    }
+  }
+}
+
+
+
+
+Java HashMap
+In the ArrayList chapter, you learned that Arrays store items as an ordered collection, and you have to access them with an index number (int type). A HashMap however, store items in "key/value" pairs, and you can access them by an index of another type (e.g. a String).
+One object is used as a key (index) to another object (value). It can store different types: String keys and Integer values, or the same type, like: String keys and String values:
+Example
+Create a HashMap object called capitalCities that will store String keys and String values:
+import java.util.HashMap; // import the HashMap class
+
+
+HashMap<String, String> capitalCities = new HashMap<String, String>();
+
+
+________________
+
+
+Add Items
+The HashMap class has many useful methods. For example, to add items to it, use the put() method:
+Example
+// Import the HashMap class
+import java.util.HashMap;
+
+
+public class Main {
+  public static void main(String[] args) {
+    // Create a HashMap object called capitalCities
+    HashMap<String, String> capitalCities = new HashMap<String, String>();
+
+
+    // Add keys and values (Country, City)
+    capitalCities.put("England", "London");
+    capitalCities.put("Germany", "Berlin");
+    capitalCities.put("Norway", "Oslo");
+    capitalCities.put("USA", "Washington DC");
+    System.out.println(capitalCities);
+  }
+}
+________________
+
+
+Access an Item
+To access a value in the HashMap, use the get() method and refer to its key:
+Example
+capitalCities.get("England");
+________________
+
+
+Remove an Item
+To remove an item, use the remove() method and refer to the key:
+Example
+capitalCities.remove("England");
+To remove all items, use the clear() method:
+Example
+capitalCities.clear();
+
+
+________________
+
+
+________________
+
+
+HashMap Size
+To find out how many items there are, use the size() method:
+Example
+capitalCities.size();
+________________
+
+
+Loop Through a HashMap
+Loop through the items of a HashMap with a for-each loop.
+Note: Use the keySet() method if you only want the keys, and use the values() method if you only want the values:
+Example
+// Print keys
+for (String i : capitalCities.keySet()) {
+  System.out.println(i);
+}
+
+
+Example
+// Print values
+for (String i : capitalCities.values()) {
+  System.out.println(i);
+}
+
+
+Example
+// Print keys and values
+for (String i : capitalCities.keySet()) {
+  System.out.println("key: " + i + " value: " + capitalCities.get(i));
+}
+
+
+
+
+
+
+
+
+Java HashSet
+A HashSet is a collection of items where every item is unique, and it is found in the java.util package:
+Example
+Create a HashSet object called cars that will store strings:
+import java.util.HashSet; // Import the HashSet class
+
+
+HashSet<String> cars = new HashSet<String>();
+
+
+________________
+
+
+Add Items
+The HashSet class has many useful methods. For example, to add items to it, use the add() method:
+Example
+// Import the HashSet class
+import java.util.HashSet;
+
+
+public class Main {
+  public static void main(String[] args) {
+    HashSet<String> cars = new HashSet<String>();
+    cars.add("Volvo");
+    cars.add("BMW");
+    cars.add("Ford");
+    cars.add("BMW");
+    cars.add("Mazda");
+    System.out.println(cars);
+  }
+}
+Note: In the example above, even though BMW is added twice it only appears once in the set because every item in a set has to be unique.
+________________
+
+
+Check If an Item Exists
+To check whether an item exists in a HashSet, use the contains() method:
+Example
+cars.contains("Mazda");
+________________
+
+
+Remove an Item
+To remove an item, use the remove() method:
+Example
+cars.remove("Volvo");
+To remove all items, use the clear() method:
+Example
+cars.clear();
+________________
+
+
+________________
+
+
+HashSet Size
+To find out how many items there are, use the size method:
+Example
+cars.size();
+________________
+
+
+Loop Through a HashSet
+Loop through the items of an HashSet with a for-each loop:
+Example
+for (String i : cars) {
+  System.out.println(i);
+}
