@@ -1,0 +1,698 @@
+﻿Java - What is OOP?
+OOP stands for Object-Oriented Programming.
+Procedural programming is about writing procedures or methods that perform operations on the data, while object-oriented programming is about creating objects that contain both data and methods.
+Object-oriented programming has several advantages over procedural programming:
+* OOP is faster and easier to execute
+* OOP provides a clear structure for the programs
+* OOP helps to keep the Java code DRY "Don't Repeat Yourself", and makes the code easier to maintain, modify and debug
+* OOP makes it possible to create full reusable applications with less code and shorter development time
+Tip: The "Don't Repeat Yourself" (DRY) principle is about reducing the repetition of code. You should extract out the codes that are common for the application, and place them at a single place and reuse them instead of repeating it.
+________________
+
+
+Java - What are Classes and Objects?
+Classes and objects are the two main aspects of object-oriented programming.
+Look at the following illustration to see the difference between class and objects:
+class
+Fruit
+objects
+Apple
+Banana
+Mango
+Another example:
+class
+Car
+objects
+Volvo
+Audi
+Toyota
+So, a class is a template for objects, and an object is an instance of a class.
+When the individual objects are created, they inherit all the variables and methods from the class.
+
+
+Java Classes/Objects
+Java is an object-oriented programming language.
+Everything in Java is associated with classes and objects, along with its attributes and methods. For example: in real life, a car is an object. The car has attributes, such as weight and color, and methods, such as drive and brake.
+A Class is like an object constructor, or a "blueprint" for creating objects.
+________________
+
+
+Create a Class
+To create a class, use the keyword class:
+Main.java
+Create a class named "Main" with a variable x:
+public class Main {
+  int x = 5;
+}
+
+
+Remember from the Java Syntax chapter that a class should always start with an uppercase first letter, and that the name of the java file should match the class name.
+________________
+
+
+Create an Object
+In Java, an object is created from a class. We have already created the class named Main, so now we can use this to create objects.
+To create an object of Main, specify the class name, followed by the object name, and use the keyword new:
+Example
+Create an object called "myObj" and print the value of x:
+public class Main {
+  int x = 5;
+
+
+  public static void main(String[] args) {
+    Main myObj = new Main();
+    System.out.println(myObj.x);
+  }
+}
+
+
+Multiple Objects
+You can create multiple objects of one class:
+Example
+Create two objects of Main:
+public class Main {
+  int x = 5;
+
+
+  public static void main(String[] args) {
+    Main myObj1 = new Main();  // Object 1
+    Main myObj2 = new Main();  // Object 2
+    System.out.println(myObj1.x);
+    System.out.println(myObj2.x);
+  }
+}
+________________
+
+
+Using Multiple Classes
+You can also create an object of a class and access it in another class. This is often used for better organization of classes (one class has all the attributes and methods, while the other class holds the main() method (code to be executed)).
+Remember that the name of the java file should match the class name. In this example, we have created two files in the same directory/folder:
+* Main.java
+* Second.java
+Main.java
+public class Main {
+  int x = 5;
+}
+
+
+Second.java
+class Second {
+  public static void main(String[] args) {
+    Main myObj = new Main();
+    System.out.println(myObj.x);
+  }
+}
+
+
+When both files have been compiled:
+C:\Users\Your Name>javac Main.java
+C:\Users\Your Name>javac Second.java
+Run the Second.java file:
+C:\Users\Your Name>java Second
+And the output will be:
+5
+Java Class Attributes
+In the previous chapter, we used the term "variable" for x in the example (as shown below). It is actually an attribute of the class. Or you could say that class attributes are variables within a class:
+Example
+Create a class called "Main" with two attributes: x and y:
+public class Main {
+  int x = 5;
+  int y = 3;
+}
+
+
+Another term for class attributes is fields.
+________________
+
+
+Accessing Attributes
+You can access attributes by creating an object of the class, and by using the dot syntax (.):
+The following example will create an object of the Main class, with the name myObj. We use the x attribute on the object to print its value:
+Example
+Create an object called "myObj" and print the value of x:
+public class Main {
+  int x = 5;
+
+
+  public static void main(String[] args) {
+    Main myObj = new Main();
+    System.out.println(myObj.x);
+  }
+}
+
+
+________________
+
+
+Modify Attributes
+You can also modify attribute values:
+Example
+Set the value of x to 40:
+public class Main {
+  int x;
+
+
+  public static void main(String[] args) {
+    Main myObj = new Main();
+    myObj.x = 40;
+    System.out.println(myObj.x);
+  }
+}
+
+
+Or override existing values:
+Example
+Change the value of x to 25:
+public class Main {
+  int x = 10;
+
+
+  public static void main(String[] args) {
+    Main myObj = new Main();
+    myObj.x = 25; // x is now 25
+    System.out.println(myObj.x);
+  }
+}
+
+
+If you don't want the ability to override existing values, declare the attribute as final:
+Example
+public class Main {
+  final int x = 10;
+
+
+  public static void main(String[] args) {
+    Main myObj = new Main();
+    myObj.x = 25; // will generate an error: cannot assign a value to a final variable
+    System.out.println(myObj.x);
+  }
+}
+Java Class Methods
+You learned from the Java Methods chapter that methods are declared within a class, and that they are used to perform certain actions:
+Example
+Create a method named myMethod() in Main:
+public class Main {
+  static void myMethod() {
+    System.out.println("Hello World!");
+  }
+}
+
+
+
+
+
+
+myMethod() prints a text (the action), when it is called. To call a method, write the method's name followed by two parentheses () and a semicolon;
+Example
+Inside main, call myMethod():
+public class Main {
+  static void myMethod() {
+    System.out.println("Hello World!");
+  }
+
+
+  public static void main(String[] args) {
+    myMethod();
+  }
+}
+
+
+// Outputs "Hello World!"
+
+
+________________
+
+
+Static vs. Non-Static
+You will often see Java programs that have either static or public attributes and methods.
+In the example above, we created a static method, which means that it can be accessed without creating an object of the class, unlike public, which can only be accessed by objects:
+Example
+An example to demonstrate the differences between static and public methods:
+public class Main {
+  // Static method
+  static void myStaticMethod() {
+    System.out.println("Static methods can be called without creating objects");
+  }
+
+
+  // Public method
+  public void myPublicMethod() {
+    System.out.println("Public methods must be called by creating objects");
+  }
+
+
+  // Main method
+  public static void main(String[] args) {
+    myStaticMethod(); // Call the static method
+    // myPublicMethod(); This would compile an error
+
+
+    Main myObj = new Main(); // Create an object of Main
+    myObj.myPublicMethod(); // Call the public method on the object
+  }
+}
+
+
+
+
+
+
+
+
+
+
+Note: You will learn more about these keywords (called modifiers) in the Java Modifiers chapter.
+________________
+
+
+Access Methods With an Object
+Example
+Create a Car object named myCar. Call the fullThrottle() and speed() methods on the myCar object, and run the program:
+// Create a Main class
+public class Main {
+ 
+  // Create a fullThrottle() method
+  public void fullThrottle() {
+    System.out.println("The car is going as fast as it can!");
+  }
+
+
+  // Create a speed() method and add a parameter
+  public void speed(int maxSpeed) {
+    System.out.println("Max speed is: " + maxSpeed);
+  }
+
+
+  // Inside main, call the methods on the myCar object
+  public static void main(String[] args) {
+    Main myCar = new Main();   // Create a myCar object
+    myCar.fullThrottle();      // Call the fullThrottle() method
+    myCar.speed(200);          // Call the speed() method
+  }
+}
+
+
+// The car is going as fast as it can!
+// Max speed is: 200
+Example explained
+1) We created a custom Main class with the class keyword.
+2) We created the fullThrottle() and speed() methods in the Main class.
+3) The fullThrottle() method and the speed() method will print out some text, when they are called.
+4) The speed() method accepts an int parameter called maxSpeed - we will use this in 8).
+5) In order to use the Main class and its methods, we need to create an object of the Main Class.
+6) Then, go to the main() method, which you know by now is a built-in Java method that runs your program (any code inside main is executed).
+7) By using the new keyword we created an object with the name myCar.
+8) Then, we call the fullThrottle() and speed() methods on the myCar object, and run the program using the name of the object (myCar), followed by a dot (.), followed by the name of the method (fullThrottle(); and speed(200);). Notice that we add an int parameter of 200 inside the speed() method.
+Remember that..
+The dot (.) is used to access the object's attributes and methods.
+To call a method in Java, write the method name followed by a set of parentheses (), followed by a semicolon (;).
+A class must have a matching filename (Main and Main.java).
+________________
+
+
+Using Multiple Classes
+Like we specified in the Classes chapter, it is a good practice to create an object of a class and access it in another class.
+Remember that the name of the java file should match the class name. In this example, we have created two files in the same directory:
+* Main.java
+* Second.java
+Main.java
+public class Main {
+  public void fullThrottle() {
+    System.out.println("The car is going as fast as it can!");
+  }
+
+
+  public void speed(int maxSpeed) {
+    System.out.println("Max speed is: " + maxSpeed);
+  }
+}
+
+
+Second.java
+class Second {
+  public static void main(String[] args) {
+    Main myCar = new Main();     // Create a myCar object
+    myCar.fullThrottle();      // Call the fullThrottle() method
+    myCar.speed(200);          // Call the speed() method
+  }
+}
+
+
+When both files have been compiled:
+C:\Users\Your Name>javac Main.java
+C:\Users\Your Name>javac Second.java
+Run the Second.java file:
+C:\Users\Your Name>java Second
+And the output will be:
+The car is going as fast as it can!
+Max speed is: 200
+Java Constructors
+A constructor in Java is a special method that is used to initialize objects. The constructor is called when an object of a class is created. It can be used to set initial values for object attributes:
+Example
+Create a constructor:
+// Create a Main class
+public class Main {
+  int x;  // Create a class attribute
+
+
+  // Create a class constructor for the Main class
+  public Main() {
+    x = 5;  // Set the initial value for the class attribute x
+  }
+
+
+  public static void main(String[] args) {
+    Main myObj = new Main(); // Create an object of class Main (This will call the constructor)
+    System.out.println(myObj.x); // Print the value of x
+  }
+}
+
+
+// Outputs 5
+
+
+Note that the constructor name must match the class name, and it cannot have a return type (like void).
+Also note that the constructor is called when the object is created.
+All classes have constructors by default: if you do not create a class constructor yourself, Java creates one for you. However, then you are not able to set initial values for object attributes.
+________________
+
+
+Constructor Parameters
+Constructors can also take parameters, which is used to initialize attributes.
+The following example adds an int y parameter to the constructor. Inside the constructor we set x to y (x=y). When we call the constructor, we pass a parameter to the constructor (5), which will set the value of x to 5:
+Example
+public class Main {
+  int x;
+
+
+  public Main(int y) {
+    x = y;
+  }
+
+
+  public static void main(String[] args) {
+    Main myObj = new Main(5);
+    System.out.println(myObj.x);
+  }
+}
+
+
+// Outputs 5
+
+
+You can have as many parameters as you want:
+Example
+public class Main {
+  int modelYear;
+  String modelName;
+
+
+  public Main(int year, String name) {
+    modelYear = year;
+    modelName = name;
+  }
+
+
+  public static void main(String[] args) {
+    Main myCar = new Main(1969, "Mustang");
+    System.out.println(myCar.modelYear + " " + myCar.modelName);
+  }
+}
+
+
+// Outputs 1969 Mustang
+Modifiers
+By now, you are quite familiar with the public keyword that appears in almost all of our examples:
+public class Main
+
+
+The public keyword is an access modifier, meaning that it is used to set the access level for classes, attributes, methods and constructors.
+We divide modifiers into two groups:
+* Access Modifiers - controls the access level
+* Non-Access Modifiers - do not control access level, but provides other functionality
+________________
+
+
+Access Modifiers
+For classes, you can use either public or default:
+Modifier
+	Description
+	Try it
+	public
+	The class is accessible by any other class
+	Try it »
+	default
+	The class is only accessible by classes in the same package. This is used when you don't specify a modifier. You will learn more about packages in the Packages chapter
+	Try it »
+	For attributes, methods and constructors, you can use the one of the following:
+Modifier
+	Description
+	Try it
+	public
+	The code is accessible for all classes
+	Try it »
+	private
+	The code is only accessible within the declared class
+	Try it »
+	
+
+	
+
+	
+
+	protected
+	The code is accessible in the same package and subclasses. You will learn more about subclasses and superclasses in the Inheritance chapter
+	Try it »
+	________________
+
+
+For attributes and methods, you can use the one of the following:
+Modifier
+	Description
+	final
+	Attributes and methods cannot be overridden/modified
+	static
+	Attributes and methods belongs to the class, rather than an object
+	abstract
+	Can only be used in an abstract class, and can only be used on methods. The method does not have a body, for example abstract void run();. The body is provided by the subclass (inherited from). You will learn more about inheritance and abstraction in the Inheritance and Abstraction chapters
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	Example
+public class Main {
+  final int x = 10;
+  final double PI = 3.14;
+
+
+  public static void main(String[] args) {
+    Main myObj = new Main();
+    myObj.x = 50; // will generate an error: cannot assign a value to a final variable
+    myObj.PI = 25; // will generate an error: cannot assign a value to a final variable
+    System.out.println(myObj.x);
+  }
+}
+
+
+________________
+
+
+Static
+A static method means that it can be accessed without creating an object of the class, unlike public:
+Example
+An example to demonstrate the differences between static and public methods:
+public class Main {
+  // Static method
+  static void myStaticMethod() {
+    System.out.println("Static methods can be called without creating objects");
+  }
+
+
+  // Public method
+  public void myPublicMethod() {
+    System.out.println("Public methods must be called by creating objects");
+  }
+
+
+  // Main method
+  public static void main(String[ ] args) {
+    myStaticMethod(); // Call the static method
+    // myPublicMethod(); This would output an error
+
+
+    Main myObj = new Main(); // Create an object of Main
+    myObj.myPublicMethod(); // Call the public method
+  }
+}
+
+
+________________
+
+
+Abstract
+An abstract method belongs to an abstract class, and it does not have a body. The body is provided by the subclass:
+Example
+// Code from filename: Main.java
+// abstract class
+abstract class Main {
+  public String fname = "John";
+  public int age = 24;
+  public abstract void study(); // abstract method
+}
+
+
+// Subclass (inherit from Main)
+class Student extends Main {
+  public int graduationYear = 2018;
+  public void study() { // the body of the abstract method is provided here
+    System.out.println("Studying all day long");
+  }
+}
+// End code from filename: Main.java
+
+
+// Code from filename: Second.java
+class Second {
+  public static void main(String[] args) {
+    // create an object of the Student class (which inherits attributes and methods from Main)
+    Student myObj = new Student();
+
+
+    System.out.println("Name: " + myObj.fname);
+    System.out.println("Age: " + myObj.age);
+    System.out.println("Graduation Year: " + myObj.graduationYear);
+    myObj.study(); // call abstract method
+ }
+}
+
+
+Java Inheritance (Subclass and Superclass)
+In Java, it is possible to inherit attributes and methods from one class to another. We group the "inheritance concept" into two categories:
+* subclass (child) - the class that inherits from another class
+* superclass (parent) - the class being inherited from
+To inherit from a class, use the extends keyword.
+In the example below, the Car class (subclass) inherits the attributes and methods from the Vehicle class (superclass):
+Example
+class Vehicle {
+  protected String brand = "Ford";        // Vehicle attribute
+  public void honk() {                    // Vehicle method
+    System.out.println("Tuut, tuut!");
+  }
+}
+
+
+class Car extends Vehicle {
+  private String modelName = "Mustang";    // Car attribute
+  public static void main(String[] args) {
+
+
+    // Create a myCar object
+    Car myCar = new Car();
+
+
+    // Call the honk() method (from the Vehicle class) on the myCar object
+    myCar.honk();
+
+
+    // Display the value of the brand attribute (from the Vehicle class) and the value of the modelName from the Car class
+    System.out.println(myCar.brand + " " + myCar.modelName);
+  }
+}
+Did you notice the protected modifier in Vehicle?
+We set the brand attribute in Vehicle to a protected access modifier. If it was set to private, the Car class would not be able to access it.
+Why And When To Use "Inheritance"?
+- It is useful for code reusability: reuse attributes and methods of an existing class when you create a new class.
+Tip: Also take a look at the next chapter, Polymorphism, which uses inherited methods to perform different tasks.
+________________
+
+
+The final Keyword
+If you don't want other classes to inherit from a class, use the final keyword:
+If you try to access a final class, Java will generate an error:
+final class Vehicle {
+  ...
+}
+
+
+class Car extends Vehicle {
+  ...
+}
+
+
+The output will be something like this:
+Main.java:9: error: cannot inherit from final Vehicle
+class Main extends Vehicle {
+                  ^
+1 error)
+Java Polymorphism
+Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.
+Like we specified in the previous chapter; Inheritance lets us inherit attributes and methods from another class. Polymorphism uses those methods to perform different tasks. This allows us to perform a single action in different ways.
+For example, think of a superclass called Animal that has a method called animalSound(). Subclasses of Animals could be Pigs, Cats, Dogs, Birds - And they also have their own implementation of an animal sound (the pig oinks, and the cat meows, etc.):
+Example
+class Animal {
+  public void animalSound() {
+    System.out.println("The animal makes a sound");
+  }
+}
+
+
+class Pig extends Animal {
+  public void animalSound() {
+    System.out.println("The pig says: wee wee");
+  }
+}
+
+
+class Dog extends Animal {
+  public void animalSound() {
+    System.out.println("The dog says: bow wow");
+  }
+}
+
+
+Remember from the Inheritance chapter that we use the extends keyword to inherit from a class.
+Now we can create Pig and Dog objects and call the animalSound() method on both of them:
+Example
+class Animal {
+  public void animalSound() {
+    System.out.println("The animal makes a sound");
+  }
+}
+
+
+class Pig extends Animal {
+  public void animalSound() {
+    System.out.println("The pig says: wee wee");
+  }
+}
+
+
+class Dog extends Animal {
+  public void animalSound() {
+    System.out.println("The dog says: bow wow");
+  }
+}
+
+
+class Main {
+  public static void main(String[] args) {
+    Animal myAnimal = new Animal();  // Create a Animal object
+    Animal myPig = new Pig();  // Create a Pig object
+    Animal myDog = new Dog();  // Create a Dog object
+    myAnimal.animalSound();
+    myPig.animalSound();
+    myDog.animalSound();
+  }
+}
+
+
+Why And When To Use "Inheritance" and "Polymorphism"?
+- It is useful for code reusability: reuse attributes and methods of an existing class when you create a new class.
