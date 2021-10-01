@@ -1,0 +1,69 @@
+g++ compiler is a C++ compiler for GNU in Linux.
+
+The g++ compiler also adds support for some special data structures that are not in C++ programming language standard library. These are known as policy-based data structures.
+
+The policy-based data structures provide the programmer a high-performance, semantic safety and flexibility as compared to the standard data structures of C++ std library.
+
+To include these data structures to your program, the following lines should be added,
+
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;
+
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#include <functional>
+#include <iostream>
+using namespace __gnu_pbds;
+using namespace std;
+typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>
+new_data_set;
+int main() {
+   new_data_set data;
+   data.insert(34);
+   data.insert(785);
+   data.insert(12);
+   data.insert(87);
+   cout<<"The value at index 2 is "<<*data.find_by_order(2)<<endl;
+   cout<<"The index of number 87 is "<<data.order_of_key(87)<<endl;
+   return 0;
+}
+
+Output
+The value at index 2 is 785
+The index of number 87 is 4
+
+These data structures are so versatile that you can go for many functions like checking index of element, finding elements at index, etc.
+
+
+Headers for Policy based data structures
+
+//Include the following header files in your code to use PBDS:
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+//Namespace 
+using namespace __gnu_pbds;
+//Templates
+ //defining template when all elements are distinct 
+template <class T> using Name_given_to_structure = tree<T, null_type,
+less<T>, rb_tree_tag,tree_order_statistics_node_update>;
+ //defining template when duplicate elements are also used
+template <class T> using Name_given_to_structure = tree<T, null_type,
+less_equal<T>, rb_tree_tag,tree_order_statistics_node_update>;
+
+Extra Operations
+So what is it that gives PBDS an edge over sets?
+There are two extra operations in Policy Based Data Structures, apart from those in the standard library. Each of these operations has a time complexity of O(log2(n)). They are listed below:
+* order_of_key(k): Returns the number of elements strictly smaller than k.
+* find_by_order(k): Returns the address of the element at kth index in the set while using zero-based indexing, i.e the first element is at index zero.
+
+Elucidating the extra operations offered by PBDS:
+Let ‘a’ be an ordered_set in which the elements 2, 4, 3, 7, and 5 are inserted.
+Then elements in ordered_set ‘a’ would be stored in the following order:
+2, 3, 4, 5, 7
+find_by_order: Here, find_by_order(x) will return the address of (x+1)th element in the ordered_set a. For example, find_by_order(3) will return the address of ‘5’ as the 4-th element(using 1 based indexing) present in the set is 5.
+order_of_key: Here, order_of_key(x) will return the number of elements strictly less than x. For example, order_of_key(10) will return 5, as all entries in the set are less than 10.
+
+
+
+
+
