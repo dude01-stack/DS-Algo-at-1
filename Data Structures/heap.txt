@@ -1,0 +1,83 @@
+A Heap is a special Tree-based data structure in which the tree is a complete binary tree. Generally, Heaps can be of two types:
+
+Max-Heap: In a Max-Heap the key present at the root node must be greatest among the keys present at all of it’s children. The same property must be recursively true for all sub-trees in that Binary Tree.
+Min-Heap: In a Min-Heap the key present at the root node must be minimum among the keys present at all of it’s children. The same property must be recursively true for all sub-trees in that Binary Tree.
+
+
+
+A Binary Heap is a Binary Tree with following properties.
+1) It’s a complete tree (All levels are completely filled except possibly the last level and the last level has all keys as left as possible). This property of Binary Heap makes them suitable to be stored in an array.
+
+2) A Binary Heap is either Min Heap or Max Heap. In a Min Binary Heap, the key at root must be minimum among all keys present in Binary Heap. The same property must be recursively true for all nodes in Binary Tree. Max Binary Heap is similar to MinHeap.
+
+How is Binary Heap represented?
+A Binary Heap is a Complete Binary Tree. A binary heap is typically represented as an array.
+
+The root element will be at Arr[0].
+Below table shows indexes of other nodes for the ith node, i.e., Arr[i]:
+Arr[(i-1)/2]	Returns the parent node
+Arr[(2*i)+1]	Returns the left child node
+Arr[(2*i)+2]	Returns the right child node
+The traversal method use to achieve Array representation is Level Order
+
+Applications of Heaps:
+1) Heap Sort: Heap Sort uses Binary Heap to sort an array in O(nLogn) time.
+
+2) Priority Queue: Priority queues can be efficiently implemented using Binary Heap because it supports insert(), delete() and extractmax(), decreaseKey() operations in O(logn) time. Binomoial Heap and Fibonacci Heap are variations of Binary Heap. These variations perform union also efficiently.
+
+3) Graph Algorithms: The priority queues are especially used in Graph Algorithms like Dijkstra’s Shortest Path and Prim’s Minimum Spanning Tree.
+
+4) Many problems can be efficiently solved using Heaps. See following for example.
+a) K’th Largest Element in an array.
+b) Sort an almost sorted array/
+c) Merge K Sorted Arrays.
+
+Operations on Min Heap:
+1) getMini(): It returns the root element of Min Heap. Time Complexity of this operation is O(1).
+
+2) extractMin(): Removes the minimum element from MinHeap. Time Complexity of this Operation is O(Logn) as this operation needs to maintain the heap property (by calling heapify()) after removing root.
+
+3) decreaseKey(): Decreases value of key. The time complexity of this operation is O(Logn). If the decreases key value of a node is greater than the parent of the node, then we don’t need to do anything. Otherwise, we need to traverse up to fix the violated heap property.
+
+
+
+4) insert(): Inserting a new key takes O(Logn) time. We add a new key at the end of the tree. IF new key is greater than its parent, then we don’t need to do anything. Otherwise, we need to traverse up to fix the violated heap property.
+
+5) delete(): Deleting a key also takes O(Logn) time. We replace the key to be deleted with minum infinite by calling decreaseKey(). After decreaseKey(), the minus infinite value must reach root, so we call extractMin() to remove the key.
+
+Consider the following algorithm for building a Heap of an input array A.
+
+BUILD-HEAP(A) 
+    heapsize := size(A); 
+    for i := floor(heapsize/2) downto 1 
+        do HEAPIFY(A, i); 
+    end for 
+END
+A quick look over the above algorithm suggests that the running time is O(nlg(n)), since each call to Heapify costs O(lg(n)) and Build-Heap makes O(n) such calls.
+This upper bound, though correct, is not asymptotically tight.
+
+We can derive a tighter bound by observing that the running time of Heapify depends on the height of the tree ‘h’ (which is equal to lg(n), where n is number of nodes) and the heights of most sub-trees are small.
+The height ’h’ increases as we move upwards along the tree. Line-3 of Build-Heap runs a loop from the index of the last internal node (heapsize/2) with height=1, to the index of root(1) with height = lg(n). Hence, Heapify takes different time for each node, which is O(h).
+
+For finding the Time Complexity of building a heap, we must know the number of nodes having height h.
+For this we use the fact that, A heap of size n has at most \left \lceil \frac{n}{2^{h+1}} \right \rceil  nodes with height h.
+
+Now to derive the time complexity, we express the total cost of Build-Heap as-
+
+Step 2 uses the properties of the Big-Oh notation to ignore the ceiling function and the constant 2(2^{h+1} = 2.2^h). Similarly in Step three, the upper limit of the summation can be increased to infinity since we are using Big-Oh notation.
+
+Sum of infinite G.P. (x < 1)
+
+
+Step 2 uses the properties of the Big-Oh notation to ignore the ceiling function and the constant 2(2^{h+1} = 2.2^h). Similarly in Step three, the upper limit of the summation can be increased to infinity since we are using Big-Oh notation.
+
+Sum of infinite G.P. (x < 1)
+
+Putting the result obtained in (3) back in our derivation (1), we get
+
+Hence Proved that the Time complexity for Building a Binary Heap is O(n)
+
+
+Heap Data Structure is generally taught with Heapsort. Heapsort algorithm has limited uses because Quicksort is better in practice. Nevertheless, the Heap data structure itself is enormously used. Following are some uses other than Heapsort.
+
+Priority Queues: Priority queues can be efficiently implemented using Binary Heap because it supports insert(), delete() and extractmax(), decreaseKey() operations in O(logn) time. Binomoial Heap and Fibonacci Heap are variations of Binary Heap. These variations perform union also in O(logn) time which is a O(n) operation in Binary Heap. Heap Implemented priority queues are used in Graph algorithms like Prim’s Algorithm and Dijkstra’s algorithm
