@@ -1,9 +1,11 @@
-﻿**Sorting Algorithm**
+## **Sorting Algorithm**
 
 Let us learn what sorting algorithm is and different sorting algorithms.
 A sorting algorithm is used to arrange elements of an array/list in a specific order. For example,
 
-**Sorting an array**
+![image](https://user-images.githubusercontent.com/83446111/137908212-22696d83-0143-408d-aa2f-58131e44d80b.png)
+
+
 
 Here, we are sorting the array in ascending order.
 
