@@ -77,11 +77,11 @@ After the 4th iteration, currentTime is 6 + 4 = 10, which is greater than T. The
 
 ### Some Common Problems on Greedy Algorthim:
 
-1. [Activity Selection Problem](https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/) <br>
-2. [Graph Coloring Problem](https://www.techiedelight.com/greedy-coloring-graph/) <br>
-3. [Distribute Candy Problem](https://www.interviewbit.com/problems/distribute-candy/) <br>
-4. [Coin Change Problem](https://www.codesdope.com/course/algorithms-greedy-algorithm/) <br>
-5. [Single Source Shortest Path Problem](https://www.techiedelight.com/single-source-shortest-paths-dijkstras-algorithm/)
+1. [Activity Selection Problem](https://github.com/jakaria9001/DS-Algo-at-1/blob/main/Algorithms/Greedy%20Algorithm/activity_selection.cpp) <br>
+2. [Graph Coloring Problem](https://github.com/jakaria9001/DS-Algo-at-1/blob/main/Algorithms/Greedy%20Algorithm/graph_coloring.cpp) <br>
+3. [Distribute Candy Problem](https://github.com/jakaria9001/DS-Algo-at-1/blob/main/Algorithms/Greedy%20Algorithm/distribute_candy.cpp) <br>
+4. [Coin Change Problem](https://github.com/jakaria9001/DS-Algo-at-1/blob/main/Algorithms/Greedy%20Algorithm/coin_change.cpp) <br>
+5. [Single Source Shortest Path Problem](https://github.com/jakaria9001/DS-Algo-at-1/blob/main/Algorithms/Greedy%20Algorithm/single_source_shortest_path.cpp)
 
 
 
