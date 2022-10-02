@@ -6,7 +6,7 @@
 */
 
 
-import java.util.*;;
+import java.util.*;
 
 public class Array_implementation {
     public static void main(String[] args) {
